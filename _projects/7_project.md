@@ -41,7 +41,7 @@ Based on Gibbs quaternions and directional tangent matrices, our team developed 
 Due to the limited numerical precision of certain open-source libraries, such as Eigen, we implemented a C++-based solution that leverages symbolic computation to numerically solve high-order univariate equations, ensuring both high accuracy and computational efficiency in engineering contexts.
 
 In Vector_template.hpp, I implemented a template for vectors and matrices to handle memory management, construction and destruction, deep and shallow copying, as well as basic operations.
-<div id="code-block" class="code-preview-container">
+<div id="code-block1" class="code-preview-container">
   {% highlight cpp %}
   #pragma once
 #include "../util/BaseException.hpp"
@@ -205,14 +205,14 @@ namespace MAS {
 		////////////////////
   {% endhighlight %}
 </div>
-<span class="expand-btn" onclick="document.getElementById('code-block').classList.toggle('open'); this.style.display='none';">
+<span class="expand-btn" onclick="document.getElementById('code-block1').classList.toggle('open'); this.style.display='none';">
   Show more
 </span>
 
 
 As an example of using this template, we implemented Rvector3, which includes the cross product operation, its corresponding screw matrix, and the second-order screw matrix—commonly applied for zero-position axis projection in robotic systems.
 
-<div id="code-block" class="code-preview-container">
+<div id="code-block2" class="code-preview-container">
   {% highlight cpp %}
   
     //////////////////
@@ -352,7 +352,7 @@ As an example of using this template, we implemented Rvector3, which includes th
 	};
   {% endhighlight %}
 </div>
-<span class="expand-btn" onclick="document.getElementById('code-block').classList.toggle('open'); this.style.display='none';">
+<span class="expand-btn" onclick="document.getElementById('code-block2').classList.toggle('open'); this.style.display='none';">
   Show more
 </span>
 
@@ -362,7 +362,7 @@ As an example of using this template, we implemented Rvector3, which includes th
 
 In solving high-order univariate equations, we optimize performance by storing only the coefficients corresponding to each power of the variable.
 
-<div id="code-block" class="code-preview-container">
+<div id="code-block3" class="code-preview-container">
   {% highlight cpp %}
 namespace MAS {
 ////////////////////Multivariate polynomial/////////////////////////////////////////////////////////////
@@ -501,7 +501,7 @@ namespace MAS {
 		///////////////////////////////////////////////////////////////////////////
   {% endhighlight %}
 </div>
-<span class="expand-btn" onclick="document.getElementById('code-block').classList.toggle('open'); this.style.display='none';">
+<span class="expand-btn" onclick="document.getElementById('code-block3').classList.toggle('open'); this.style.display='none';">
   Show more
 </span>
 
