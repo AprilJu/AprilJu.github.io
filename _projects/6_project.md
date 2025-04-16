@@ -20,7 +20,18 @@ Optimization (PPO) and leveraging NVIDIA's Isaac Gym for large-scale simulations
 individual modules into a cohesive, efficient, and robust policy optimization
 framework.
 
-<video controls style="max-width: 100%; border-radius: 10px;">
-  <source src="{{ 'assets\video\mimic_boxing.webm' | relative_url }}" type="video/webm">
+
+<!-- <video controls style="width: 100%; max-width: 600px; height: auto; display: block; margin: 1rem auto;">
+  <source src="{{ '/assets/video/mimic_boxing.webm' | relative_url }}" type="video/webm">
   Your browser does not support the video tag.
-</video>
+</video> -->
+
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+  <img src="{{ '/assets/img/mimic_boxing.gif' | relative_url }}" alt="Mimic Boxing" style="width: 250px; height: auto;">
+  <img src="{{ '/assets/img/mimic_cycle.gif' | relative_url }}" alt="Mimic Cycle" style="width: 250px; height: auto;">
+  <img src="{{ '/assets/img/mimic_swing.gif' | relative_url }}" alt="Mimic Swing" style="width: 250px; height: auto;">
+</div>
+
+
+
+
