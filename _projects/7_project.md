@@ -511,3 +511,54 @@ d is sufficiently small, we treat it as negligible and reduce the equation to a 
 a is close to zero, we take the reciprocal of both sides and solve for 
 1/x instead. This approach helps avoid significant numerical errors that can arise when converting the equation into the standard cubic form in terms of x.
 
+
+<div id="code-block4" class="code-preview-container">
+  {% highlight cpp %}
+Int64 MonicPolyC::NormalizeMonicPoly(std::set<SameRtC>& Rts, Int64 MinMaxOrder[2], bool& bLitEndian, MonicPolyC& DerivPoly, bool& bRefine)
+	{
+		bLitEndian = false;
+		Int64 NetOrder = GetMonicPolyOrder(MinMaxOrder);
+		if (NetOrder >= RefineMinOrder) {
+			bRefine = GetBigEndianDerivative(DerivPoly);
+		}
+		else {
+			bRefine = false;
+		}
+		Int64 VecSize = (Int64)CoefVec.size();
+		//////////////////////////////////////////////////////////////////////////////////////////////
+		if (NetOrder > 1) {									///At least 1 order,i.e CoefVec.size() > 2
+			bLitEndian = (10. * Abs(CoefVec[MinMaxOrder[0]]) > Abs(CoefVec[MinMaxOrder[1]]));
+			if (bLitEndian) {								///LitEndian with higher priority
+				Real LitEndianCeo = CoefVec[MinMaxOrder[0]];
+				for (Int64 no = 0; no < VecSize; no++) {	///Infinitesimal quantities for refined roots
+					CoefVec[no] /= LitEndianCeo;
+				}
+				CoefVec[MinMaxOrder[0]] = ONE;
+			}
+			else {
+				Real BigEndianCeo = CoefVec[MinMaxOrder[1]];
+				for (Int64 no = 0; no < VecSize; no++) {	///Infinitesimal quantities for refined roots
+					CoefVec[no] /= BigEndianCeo;
+				}
+				CoefVec[MinMaxOrder[1]] = ONE;
+			}
+		}
+		else if (NetOrder == 1) {
+			Real BigEndianCeo = CoefVec[MinMaxOrder[1]];
+			for (Int64 no = 0; no < VecSize; no++) {
+				CoefVec[no] /= BigEndianCeo;
+			}
+			CoefVec[MinMaxOrder[1]] = ONE;
+		}
+		/////////////Trival solution Added///////////////
+		if (MinMaxOrder[0] > 0) {
+			SameRtC SameRt;				///ZERO solution
+			SameRt.Insert(ZERO, Rts);	
+		}
+		return NetOrder;
+	};
+  {% endhighlight %}
+</div>
+<span class="expand-btn" onclick="document.getElementById('code-block4').classList.toggle('open'); this.style.display='none';">
+  Show more
+</span>
